@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Tracker</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <script src="/js/auth.js" defer></script>
+    <script src="/js/index.js" defer></script>
+  </head>
+  <body class="bg-background text-foreground">
+    <header class="flex justify-center">
+      <div
+        class="flex flex-col gap-2 sm:flex-row m-3 justify-between items-center w-full p-3 max-w-5xl bg-surface rounded-2xl"
+      >
+        <a href="/" class="flex items-center gap-2 cursor-pointer select-none">
+          <img class="text-black h-7" src="/images/logo.svg" />
+          <p class="font-bold">Habit Tracker</p>
+        </a>
+        <div class="flex w-full sm:w-auto gap-3">
+          <a
+            id="account-button"
+            href="/register.html"
+            class="block flex-1 text-center w-full sm:w-auto text-sm font-bold text-white px-3 py-2 bg-primary hover:brightness-105 cursor-pointer select-none rounded-xl"
+            >Register</a
+          >
+          <a
+            id="login-button"
+            href="/login.html"
+            class="block flex-1 text-center w-full sm:w-auto text-sm font-bold text-white px-3 py-2 bg-secondary hover:brightness-105 cursor-pointer select-none rounded-xl"
+            >Login</a
+          >
+        </div>
+      </div>
+    </header>
+    <main class="flex flex-col items-center">
+      <section
+        class="flex flex-col sm:flex-row gap-12 w-full max-w-5xl mt-14 px-3"
+      >
+        <div class="flex flex-col justify-center gap-3 items-start flex-1">
+          <h2 class="text-5xl font-bold w-full break-words hyphens-auto">
+            Build Unstoppable Habits
+          </h2>
+          <p>
+            Track your daily habits, build powerful streaks, and unlock your
+            full potential.
+          </p>
+          <a
+            id="account-button-2"
+            href="/register.html"
+            class="text-center w-full sm:w-auto font-bold text-white px-3 py-2 bg-primary hover:brightness-105 cursor-pointer select-none rounded-xl"
+            >Getting Started</a
+          >
+        </div>
+        <div class="flex flex-col justify-center flex-1">
+          <div class="aspect-video w-full p-0 sm:p-10">
+            <img src="images/demo.png" />
+          </div>
+        </div>
+      </section>
+      <section
+        class="flex flex-col items-center gap-6 w-full max-w-4xl mt-14 px-3"
+      >
+        <div class="flex flex-col gap-1">
+          <h3 class="text-center font-bold text-xl">
+            Start building powerful habits
+          </h3>
+          <p class="text-center">
+            Everything you need to stay on track in one place.
+          </p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-6 w-full">
+          <div class="flex flex-col flex-1 gap-1 p-4 bg-surface rounded-2xl">
+            <div
+              class="flex justify-center items-center bg-surface-light rounded-full h-9 w-9"
+            >
+              <img class="w-7 h-7" src="/images/add.svg" />
+            </div>
+            <h3 class="font-bold text-xl">Add tasks</h3>
+            <p class="text-sm">
+              Easily capture and organise your daily habits and to-dos in
+              seconds.
+            </p>
+          </div>
+
+          <div class="flex flex-col flex-1 gap-1 p-4 bg-surface rounded-2xl">
+            <div
+              class="flex justify-center items-center bg-surface-light rounded-full h-9 w-9"
+            >
+              <img class="w-7 h-7" src="/images/progress.svg" />
+            </div>
+            <h3 class="font-bold text-xl">Track Progress</h3>
+            <p class="text-sm">
+              Visualize your journey nd insights to keep you moving forward.
+            </p>
+          </div>
+
+          <div class="flex flex-col flex-1 gap-1 p-4 bg-surface rounded-2xl">
+            <div
+              class="flex justify-center items-center bg-surface-light rounded-full h-9 w-9"
+            >
+              <img class="w-7 h-7" src="/images/fire.svg" />
+            </div>
+            <h3 class="font-bold text-xl">Earn Streaks</h3>
+            <p class="text-sm">
+              Build lasting momentum by maintaining consistency.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="flex flex-col items-center gap-6 w-full max-w-5xl mt-14 px-3"
+      >
+        <div class="flex flex-col gap-1">
+          <h3 class="text-center font-bold text-xl">
+            Frequently Asked Questions
+          </h3>
+        </div>
+        <div class="flex flex-col gap-4 w-full max-w-3xl">
+          <!-- FAQ 1 -->
+          <div class="flex flex-col gap-1 pb-4 border-b border-black">
+            <h4 class="font-bold">Is this app free?</h4>
+            <p>Yes this app is completely free and open source!</p>
+          </div>
+          <!-- FAQ 2 -->
+          <div class="flex flex-col gap-1 pb-4 border-b border-black">
+            <h4 class="font-bold">How many habits can I track?</h4>
+            <p>
+              You can track unlimited habits on this app, the only limit is your
+              ability.
+            </p>
+          </div>
+          <!-- FAQ 3 -->
+          <!-- <div class="flex flex-col gap-1 pb-4 border-b border-black">
+            <h4 class="font-bold">How do streaks work?</h4>
+            <p>
+              Your streaks increase every consuctive day you complete your task.
+              Missing a day resets te streak to zero.
+            </p>
+          </div> -->
+        </div>
+      </section>
+    </main>
+    <footer
+      class="p-3 flex flex-col sm:flex-row gap-3 items-center sm:justify-between bg-surface mt-14"
+    >
+      <a href="/" class="cursor-pointer select-none font-bold">Habit Tracker</a>
+      <p class="text-sm">2026 Habit Tracker Pty Ltd</p>
+    </footer>
+  </body>
+</html>

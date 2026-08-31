@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #91d06c;
+  --color-secondary: #4c8ce4;
+  --color-foreground: #0f172b;
+  --color-background: white;
+  --color-surface: #cad5e2;
+  --color-surface-light: #f9f3f4;
+
+  --animate-pop-in: pop-in 200ms ease-out;
+
+  @keyframes pop-in {
+    from {
+      scale: 0.7
+    }
+
+    to {
+      scale: 1
+    }
+  }
+}

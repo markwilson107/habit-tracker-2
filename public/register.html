@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create account | Habit Tracker</title>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <script src="/js/auth.js" defer></script>
+    <script src="/js/register.js" defer></script>
+  </head>
+  <body
+    class="flex min-h-dvh items-center justify-center bg-background px-4 text-foreground"
+  >
+    <main
+      class="w-full max-w-md rounded-2xl bg-white p-8 sm:px-8 border border-surface"
+    >
+      <a href="/" class="mb-6 flex items-center gap-2 font-bold">
+        <img class="h-7" src="/images/logo.svg" alt="" /> Habit Tracker
+      </a>
+      <h1 class="text-3xl font-bold">Create an account</h1>
+      <p class="mt-2 text-sm">Start tracking habits in a few seconds.</p>
+
+      <div class="mt-6 space-y-4">
+        <div>
+          <label for="name" class="mb-2 block text-sm font-semibold"
+            >Name</label
+          >
+          <input
+            id="name"
+            autocomplete="name"
+            required
+            class="w-full rounded-lg border border-slate-300 px-3 py-2"
+          />
+        </div>
+        <div>
+          <label for="email" class="mb-2 block text-sm font-semibold"
+            >Email</label
+          >
+          <input
+            id="email"
+            type="email"
+            autocomplete="email"
+            required
+            class="w-full rounded-lg border border-slate-300 px-3 py-2"
+          />
+        </div>
+        <div>
+          <label for="password" class="mb-2 block text-sm font-semibold"
+            >Password</label
+          >
+          <input
+            id="password"
+            type="password"
+            minlength="6"
+            autocomplete="new-password"
+            required
+            class="w-full rounded-lg border border-slate-300 px-3 py-2"
+          />
+          <p class="mt-1 text-xs">Use at least 6 characters.</p>
+        </div>
+        <div>
+          <label for="confirmPassword" class="mb-2 block text-sm font-semibold"
+            >Confirm Password</label
+          >
+          <input
+            id="confirmPassword"
+            type="password"
+            minlength="6"
+            autocomplete="new-password"
+            required
+            class="w-full rounded-lg border border-slate-300 px-3 py-2"
+          />
+        </div>
+        <p id="message" class="min-h-6 text-sm text-red-600" role="alert"></p>
+        <button
+          id="register-button"
+          type="button"
+          class="w-full rounded-lg bg-primary hover:brightness-105 px-4 py-2 font-semibold text-white disabled:opacity-50 cursor-pointer"
+        >
+          Create account
+        </button>
+      </div>
+
+      <p class="mt-5 text-center text-sm">
+        Already registered?
+        <a href="/login.html" class="font-semibold text-primary">Log in</a>
+      </p>
+    </main>
+  </body>
+</html>

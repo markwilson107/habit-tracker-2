@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Habit Tracker</title>
+        <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/tsparticles-confetti/2.12.0/tsparticles.confetti.bundle.min.js"
+      integrity="sha512-3LobCjM2nQ9WclTbZY+5+IqLKwUTlBaUJTmGWdsIr7M6T5F/l25oIBNeITuef+mbD8PBvmuCF9fwXVn+PCT23Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="/js/auth.js" defer></script>
+    <script src="/js/dashboard.js" defer></script>
+  </head>
+  <body class="flex flex-col min-h-dvh bg-background text-foreground">
+    <header class="flex justify-center">
+      <div
+        class="flex flex-col gap-2 sm:flex-row m-3 justify-between items-center w-full p-3 max-w-5xl bg-surface rounded-2xl"
+      >
+        <a href="/" class="flex items-center gap-2 cursore-pointer select-none">
+          <img class="text-black h-7" src="/images/logo.svg" />
+          <p class="font-bold">Habit Tracker</p>
+        </a>
+
+        <button
+          id="profile-button"
+          class="block text-center w-full sm:w-auto text-sm font-bold text-white px-3 py-2 bg-primary hover:brightness-105 cursor-pointer select-none rounded-xl"
+        >
+          Profile
+        </button>
+      </div>
+    </header>
+    <main class="flex-1 flex flex-col items-center py-7 md:py-10">
+      <div class="flex flex-col w-full max-w-5xl px-4 sm:px-8">
+        <section
+          class="flex flex-col md:flex-row items-center justify-between gap-4"
+        >
+          <h1 class="text-3xl font-bold">Your Progress</h1>
+          <div class="flex gap-4">
+            <!-- <div
+              id="daily-streak"
+              class="rounded-full bg-surface px-4 py-2 text-sm font-semibold"
+            >
+              0 Day Streak
+            </div> -->
+            <button
+              id="add-habit-button"
+              class="rounded-lg bg-primary hover:brightness-105 px-4 py-2 text-sm font-semibold text-white cursor-pointer select-none"
+            >
+              + Add Habit
+            </button>
+          </div>
+        </section>
+
+        <div class="flex flex-col md:flex-row gap-14 mt-10">
+          <section class="flex justify-center">
+            <div
+              id="progress-circle"
+              class="flex h-44 w-44 items-center justify-center rounded-full bg-surface"
+              role="progressbar"
+              aria-label="Today's habit completion"
+              aria-valuemin="0"
+              aria-valuemax="100"
+              aria-valuenow="0"
+            >
+              <div
+                class="flex h-36 w-36 items-center justify-center rounded-full bg-white"
+              >
+                <span id="progress-percent" class="text-3xl font-bold">0%</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="flex-1">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <h2 class="text-lg font-bold">This Week</h2>
+              <label for="date-selector" class="sr-only">Select a date</label>
+              <input
+                id="date-selector"
+                type="date"
+                class="rounded-lg border border-surface bg-white px-3 py-2 text-sm cursor-pointer"
+                aria-label="Select a date"
+              />
+            </div>
+            <div
+              id="week-dates"
+              class="mt-4 grid grid-cols-5 gap-2 text-center"
+              aria-label="Weekday date selector"
+            ></div>
+            <p id="message" class="mt-5 min-h-6 text-sm text-red-600"></p>
+            <div class="relative">
+              <div
+                id="loading-indicator"
+                class="absolute inset-0 z-10 flex items-center justify-center"
+                role="status"
+                aria-label="Loading habits"
+              >
+                <div
+                  class="h-8 w-8 animate-spin rounded-full border-4 border-surface border-t-primary"
+                ></div>
+              </div>
+              <div
+                id="habit-list"
+                class="mt-2 min-h-24 space-y-3 transition-opacity"
+              ></div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <div
+      id="habit-modal"
+      class="fixed inset-0 hidden items-center justify-center bg-black/40 px-3"
+    >
+      <div
+        class="w-full max-w-md rounded-xl bg-white p-6 shadow-xl overflow-auto max-h-dvh"
+      >
+        <h2 id="modal-title" class="text-xl font-bold">Add Habit</h2>
+
+        <div class="mt-5 space-y-4">
+          <div>
+            <label for="habit-name" class="mb-2 block text-sm font-semibold"
+              >Habit name</label
+            >
+            <input
+              id="habit-name"
+              class="w-full border border-slate-300 px-3 py-2"
+              placeholder="Drink Water"
+            />
+          </div>
+          <div>
+            <label
+              for="habit-description"
+              class="mb-2 block text-sm font-semibold"
+              >Description</label
+            >
+            <input
+              id="habit-description"
+              class="w-full border border-slate-300 px-3 py-2"
+              placeholder="2L Daily Goal"
+            />
+          </div>
+          <div>
+            <label for="habit-icon" class="mb-2 block text-sm font-semibold"
+              >Icon letter</label
+            >
+            <input
+              id="habit-icon"
+              maxlength="1"
+              class="w-full border border-slate-300 px-3 py-2"
+              placeholder="W"
+            />
+          </div>
+        </div>
+
+        <div id="habit-modal-message" class="text-sm mt-3 text-red-500"></div>
+
+        <div class="mt-6 flex justify-end gap-3">
+          <button
+            id="cancel-button"
+            class="rounded-lg border border-slate-300 px-4 py-2 font-semibold cursor-pointer select-none"
+          >
+            Cancel
+          </button>
+          <button
+            id="save-button"
+            class="rounded-lg bg-primary hover:brightness-105 px-4 py-2 text-sm font-semibold text-white cursor-pointer select-none disabled:bg-surface"
+          >
+            Save Habit
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      id="profile-modal"
+      class="fixed inset-0 hidden items-center justify-center bg-black/40 px-3"
+    >
+      <div
+        class="w-full max-w-md rounded-xl bg-white p-6 shadow-xl overflow-auto max-h-dvh"
+      >
+        <h2 id="modal-title" class="text-xl font-bold">Account</h2>
+
+        <div class="mt-5 space-y-4">
+          <div>
+            <label for="profile-name" class="mb-2 block text-sm font-semibold"
+              >Name</label
+            >
+            <input
+              id="profile-name"
+              class="w-full border border-slate-300 px-3 py-2"
+              placeholder="John Doe"
+              readonly
+            />
+          </div>
+          <div>
+            <label for="profile-email" class="mb-2 block text-sm font-semibold"
+              >Email</label
+            >
+            <input
+              id="profile-email"
+              class="w-full border border-slate-300 px-3 py-2"
+              placeholder="johndoe@email.com"
+              readonly
+            />
+          </div>
+        </div>
+
+        <div class="mt-6 flex justify-end gap-3">
+          <button
+            id="profile-cancel-button"
+            class="rounded-lg border border-slate-300 px-4 py-2 font-semibold cursor-pointer select-none"
+          >
+            Cancel
+          </button>
+          <button
+            id="logout-button"
+            class="rounded-lg bg-red-500 hover:brightness-105 px-4 py-2 text-sm font-semibold text-white cursor-pointer select-none"
+          >
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="p-3 flex flex-col sm:flex-row gap-3 items-center sm:justify-between bg-surface mt-14"
+    >
+      <a href="/" class="cursor-pointer select-none font-bold">Habit Tracker</a>
+      <p class="text-sm">2026 Habit Tracker Pty Ltd</p>
+    </footer>
+  </body>
+</html>

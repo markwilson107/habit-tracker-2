@@ -1,0 +1,29 @@
+{
+  "name": "habit-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "tailwind:dev": "npx @tailwindcss/cli -i ./tailwind/config.css -o ./public/css/app.css --watch",
+    "tailwind:build": "npx @tailwindcss/cli -i ./tailwind/config.css -o ./public/css/app.css --minify",
+    "dev": "concurrently \"node --watch app.js\" \"npm run tailwind:dev\"",
+    "start": "npm run tailwind:build && node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.9.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "concurrently": "^10.0.4",
+    "tailwindcss": "^4.3.3"
+  }
+}
