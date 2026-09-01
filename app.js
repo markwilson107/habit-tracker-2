@@ -5,12 +5,13 @@ const dailyEntryRoutes = require("./routes/dailyEntryRoutes");
 const authRoutes = require("./routes/authRoutes");
 const requireAuth = require("./middleware/requireAuth");
 require("dotenv").config();
+const path = require("path");
 
 const app = express();
 const PORT = 3000;
 
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 async function startApp() {
   try {
