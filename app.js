@@ -4,8 +4,8 @@ const habitRoutes = require("./routes/habitRoutes");
 const dailyEntryRoutes = require("./routes/dailyEntryRoutes");
 const authRoutes = require("./routes/authRoutes");
 const requireAuth = require("./middleware/requireAuth");
-require("dotenv").config();
 const path = require("path");
+require("dotenv").config();
 
 const app = express();
 const PORT = 3000;
