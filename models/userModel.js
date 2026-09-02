@@ -10,6 +10,7 @@ const userSchema = new mongoose.Schema({
     trim: true,
   },
   password: { type: String, required: true },
+  role: {type: "user" | "admin" | "superadmin", required: true, default: "user"}
 });
 
 const User = mongoose.model("Users", userSchema);
